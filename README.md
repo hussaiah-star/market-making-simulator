@@ -28,15 +28,15 @@ The reservation price is `r = mid - inventory × γ × σ² × (time left)`, whe
 | Symmetric | 67.8 | 13.7 | 4.95 | 6.7 |
 | Inventory-aware | 65.0 | 6.6 | 9.80 | 2.4 |
 
-![P&L distribution](results/pnl_distribution.png)
+![P&L distribution](pnl_distribution.png)
 
 The inventory-aware market maker gives up 4% of average profit, cuts the standard deviation of daily P&L by 52%, and roughly doubles profit per unit of risk. Its inventory stays close to zero all day:
 
-![Inventory path](results/inventory_path.png)
+![Inventory path](inventory_path.png)
 
 **2. Risk aversion is a dial, not a free lunch.** Raising γ makes the market maker lean harder on inventory and quote wider. Risk keeps falling, but past γ ≈ 0.1 profit falls much faster than risk does.
 
-![Risk frontier](results/risk_frontier.png)
+![Risk frontier](risk_frontier.png)
 
 **3. Extension: volatility doubles from σ = 2 to σ = 4.** I compared each strategy when its quotes are *stale* (still set for σ = 2) and when they are *recalibrated* to σ = 4.
 
@@ -47,7 +47,7 @@ The inventory-aware market maker gives up 4% of average profit, cuts the standar
 | Inventory-aware | Stale | 64.9 | 8.3 |
 | Inventory-aware | Recalibrated | 52.6 | 6.9 |
 
-![Volatility shock](results/vol_shock.png)
+![Volatility shock](vol_shock.png)
 
 What I took from this:
 
@@ -71,7 +71,7 @@ The natural next steps would be adding adverse selection (orders that predict th
 ```bash
 pip install -r requirements.txt
 python run_experiments.py          # regenerates every number and chart above
-python -m unittest discover tests  # sanity checks on quotes and results
+python -m unittest test_simulator  # sanity checks on quotes and results
 ```
 
 All simulations use fixed random seeds, so the results reproduce exactly.
@@ -79,10 +79,10 @@ All simulations use fixed random seeds, so the results reproduce exactly.
 ## Files
 
 ```
-market_maker/simulator.py   quoting rules and the day-by-day simulation
-run_experiments.py          the three experiments, charts and summary table
-results/                    charts and summary.csv
-tests/                      unit tests
+simulator.py         quoting rules and the day-by-day simulation
+run_experiments.py   the three experiments, charts and summary table
+test_simulator.py    unit tests
+*.png, summary.csv   charts and results table
 ```
 
 ## Reference

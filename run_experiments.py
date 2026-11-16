@@ -2,7 +2,7 @@
 
     python run_experiments.py
 
-Writes results/summary.csv and the charts in results/.
+Writes summary.csv and the four charts into this folder.
 """
 
 import csv
@@ -12,12 +12,11 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from market_maker.simulator import (
+from simulator import (
     MarketParams, as_quotes, symmetric_quotes, simulate_day, run,
 )
 
-OUT = "results"
-os.makedirs(OUT, exist_ok=True)
+OUT = "."
 p = MarketParams()
 N_DAYS = 1000
 INK, ACCENT, GREY = "#1b1b1b", "#0b4ea2", "#9aa3ad"
