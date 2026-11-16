@@ -1,0 +1,12 @@
+strategy,gamma,mean_pnl,std_pnl,mean_over_std,mean_abs_inventory
+symmetric,0.1,67.8,13.71,4.95,6.73
+inventory_aware,0.1,65.04,6.64,9.8,2.36
+inventory_aware_sweep,0.01,68.33,8.84,7.73,4.27
+inventory_aware_sweep,0.05,66.98,6.82,9.83,2.87
+inventory_aware_sweep,0.1,65.1,6.31,10.32,2.41
+inventory_aware_sweep,0.5,48.41,5.85,8.28,1.53
+inventory_aware_sweep,1.0,31.4,4.65,6.75,1.27
+vol_shock_symmetric_stale,0.1,67.99,24.71,2.75,6.63
+vol_shock_symmetric_recalibrated,0.1,59.8,20.49,2.92,5.88
+vol_shock_inventory_aware_stale,0.1,64.89,8.25,7.86,2.32
+vol_shock_inventory_aware_recalibrated,0.1,52.55,6.93,7.58,1.62
